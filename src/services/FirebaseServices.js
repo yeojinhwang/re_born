@@ -20,6 +20,7 @@ firebase.initializeApp(firebaseConfig)
 
 // firebase 인승상태 지속성
 // login 시 페이지 로드가 한번 일어남으로 NONE으로 설정하면 인증이 해제됨
+
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 
 const db = firebase.firestore()
