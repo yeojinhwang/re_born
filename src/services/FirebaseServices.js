@@ -27,26 +27,37 @@ const db = firebase.firestore()
 
 export default {
     // login with google
-    loginUserWidthGoogle() {
+    loginUserWithGoogle() {
         let _this = this;
         let provider = new firebase.auth.GoogleAuthProvider()
         // firebase.auth().signInWithRedirect(provider);
         // firebase.auth().getRedirectResult()
-        firebase.auth().signInWithPopup(provider)
-        .then(function(result) {
+        firebase.auth().signInWithRedirect(provider)
+        firebase.auth().getRedirectResult().then(function(result) {
+            // console.log(result)
             if (result.additionalUserInfo.isNewUser) {
-                _this.createdForNewUser(result.user.uid, '20190830', result.user.displayName)
+                _this.createdForNewUser(result.user.uid, result.user.displayName)
             }
         })
         .catch(function(error) {
             console.log(error.code, error.message)
         })
     },
+    // user db update
+    async createdForNewUser(userID, name) {
+        await db.collection('users').doc(userID).set({
+            points: 0,
+            level: '0',
+            displayName: name,
+            created_at: firebase.firestore.FieldValue.serverTimestamp(),
+            photoURL: 'http://dy.gnch.or.kr/img/no-image.jpg',
+        })
+    },
     // logout
     logoutUser() {
         firebasa.auth().signOut().then(function() {})
         .then(sessionStorage.clear())
-        .then(router.push('/'))
+        .then(router.push('/sign'))
         .catch(function(error) {
             console.log(error)
         })
