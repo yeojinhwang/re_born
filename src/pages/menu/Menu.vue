@@ -1,5 +1,12 @@
 <template>
-    <v-container style="height: 100vh;">
+    <div style="height: 100vh;">
+        <v-layout
+            style="background: none; margin-bottom: 1rem; margin-top: 0.7rem;"
+        >
+            <img style="height: 3rem; margin-left: 27vw;" src="../../../public/reborn-logo.png"/>
+
+            <span style="color: #505050; font-family: 'Poiret One', cursive; font-weight: bold; font-size: 2rem; padding-top: 0.5rem; display: inline-block; line-height: normal; vertical-align: middle;">Re-born</span>
+        </v-layout>
         <div>
             <img :src="user.photoURL" style="height: 4rem; border-radius: 50%"/>
         </div>
@@ -15,7 +22,7 @@
             <v-icon left>{{item.icon}}</v-icon>
             {{item.title}}
         </v-btn>
-    </v-container>
+    </div>
 </template>
 
 <script>

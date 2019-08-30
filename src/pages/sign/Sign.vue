@@ -43,6 +43,9 @@ export default {
 </script>
 
 <style>
+  html {
+    height: 100vh;
+  }
   .google-button {
     height: 40px;
     border-width: 0;
