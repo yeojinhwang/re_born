@@ -1,17 +1,19 @@
 <template>
-    <v-container justify-center align-content-center>
+    <v-container style="height: 100vh;">
         <div>
             <img :src="user.photoURL" style="height: 4rem; border-radius: 50%"/>
         </div>
         <div>
             <p>{{user.displayName}}</p>
         </div>
+        <v-divider/>
         <v-btn v-for="item in items"
             color="#DDEAD3"
             flat
             @click="actFunc(item.title, item.path)"
         >
             <v-icon left>{{item.icon}}</v-icon>
+            {{item.title}}
         </v-btn>
     </v-container>
 </template>
