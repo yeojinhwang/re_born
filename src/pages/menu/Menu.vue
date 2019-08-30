@@ -45,6 +45,7 @@ export default {
         actFunc(title, path) {
             if (title == 'log out') {
                 let tmp = FirebaseServices.logoutUser()
+                router.push('/sign')
             } else {
                 router.push(path)
             }
