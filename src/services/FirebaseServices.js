@@ -27,13 +27,11 @@ const db = firebase.firestore()
 
 export default {
     // login with google
-    loginUserWithGoogle() {
+    async loginUserWithGoogle() {
         let _this = this;
         let provider = new firebase.auth.GoogleAuthProvider()
-        // firebase.auth().signInWithRedirect(provider);
-        // firebase.auth().getRedirectResult()
-        firebase.auth().signInWithRedirect(provider)
-        firebase.auth().getRedirectResult().then(function(result) {
+        await firebase.auth().signInWithRedirect(provider)
+        await firebase.auth().getRedirectResult().then(function(result) {
             // console.log(result)
             if (result.additionalUserInfo.isNewUser) {
                 _this.createdForNewUser(result.user.uid, result.user.displayName)
@@ -55,7 +53,7 @@ export default {
     },
     // logout
     logoutUser() {
-        firebasa.auth().signOut().then(function() {})
+        firebase.auth().signOut().then(function() {})
         .then(sessionStorage.clear())
         .then(router.push('/sign'))
         .catch(function(error) {

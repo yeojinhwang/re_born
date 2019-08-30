@@ -4,6 +4,7 @@ import firebase from 'firebase'
 import firebaseApp from 'firebase/app'
 import Sign from './pages/sign/Sign.vue'
 
+import test from './pages/sign/test.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -14,6 +15,11 @@ export default new Router({
               path: '/sign',
               name: 'Sign',
               component: Sign
+          },
+          {
+              path: '/test',
+              name: 'test',
+              component: test
           }
       ]
   })
