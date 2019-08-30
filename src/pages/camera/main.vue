@@ -1,11 +1,13 @@
 <template>
   <div id="cam">
     <div v-show="captures === 0">
-      <video ref="video" id="video" width="100%" height="50%" autoplay></video>
+      <video ref="video" id="video" width="100%" height="60%" autoplay></video>
     </div>
-    <img v-if="captures !== 0" :src="captures" width="100%" height="50%" />
+    <img v-if="captures !== 0" :src="captures" width="100%" height="60%" />
     <div>
-      <button id="snap" v-on:click="capture()">Snap Photo</button>
+      <!-- <button> -->
+      <img id="snap" src="../../assets/camera_button.png" v-on:click="capture()" width="15%" />
+      <!-- </button> -->
     </div>
     <canvas ref="canvas" id="canvas" width="640" height="480"></canvas>
   </div>
@@ -81,14 +83,13 @@ export default {
 #cam {
   text-align: center;
   color: #2c3e50;
+  height: 100%;
+  width: 100%;
 }
 #video {
   background-color: #000000;
 }
 #canvas {
   display: none;
-}
-li {
-  display: inline;
 }
 </style>
