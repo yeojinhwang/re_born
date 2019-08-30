@@ -1,8 +1,8 @@
 <template>
   <div style="background-color: #DDEAD3; height: 100vh;">
-    <div style="margin-left: 35vw; padding-top: 30vh;">
-      <img class="animated tada slow infinite" style="height: 5rem; margin-left: 7vw;" src="https://firebasestorage.googleapis.com/v0/b/reborn-4c850.appspot.com/o/src%2Freborn-logo.png?alt=media&token=4396dd6c-df8a-494d-ba58-282ee02b3848"/>
-      <p style="font-size: 2.5rem; font-family: 'Poiret One', cursive; font-weight: bold; padding-top: 2vh;">Re-born</p>
+    <div style="margin-left: 32vw; padding-top: 27vh;">
+      <img class="animated tada slow infinite" style="height: 8rem; margin-left: 5vw;" src="https://firebasestorage.googleapis.com/v0/b/reborn-4c850.appspot.com/o/src%2Freborn-logo.png?alt=media&token=4396dd6c-df8a-494d-ba58-282ee02b3848"/>
+      <p style="color: #505050; font-size: 3rem; font-family: 'Poiret One', cursive; font-weight: bold; padding-top: 2vh;">Re-born</p>
     </div>
     <!-- login provider -->
     <div id="loginProvider" style="margin-left: 26vw; padding-top: 7vh;">
