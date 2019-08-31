@@ -12,17 +12,19 @@ visual_recognition = VisualRecognitionV3(
 def get_result(request):
     if request.method == 'POST':
         path = request.data.get('src', None)
-        with (path, 'rb') as image_file:
-            classes = visual_recognition.classify(
-                image_file,
-                threshold='0.6',
-                owners=["me"]).get_result()
-            tmp = json.dumps(classes, indent=2)
-            results = tmp.images.classifiers.classes
-            val = 0
-            for result in results:
-                if result.score > val:
-                    val = result.score
-                    fin_val = result
+        result = {data: path}
+        return Response(data=result, status=status.HTTP_200_OK)
+        # with (path, 'rb') as image_file:
+            # classes = visual_recognition.classify(
+            #     image_file,
+            #     threshold='0.6',
+            #     owners=["me"]).get_result()
+            # tmp = json.dumps(classes, indent=2)
+            # results = tmp.images.classifiers.classes
+            # val = 0
+            # for result in results:
+            #     if result.score > val:
+            #         val = result.score
+            #         fin_val = result
 
-        return Response(data=fin_val, status=status.HTTP_200_OK)
+        # return Response(data=fin_val, status=status.HTTP_200_OK)
