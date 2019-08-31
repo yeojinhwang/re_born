@@ -68,6 +68,8 @@ export default {
           .then(docSnapshot => {
             if (docSnapshot.exists === false) {
               FirebaseServices.createdForNewUser(user.uid, user.displayName);
+              this.$session.start()
+              this.$session.set('uid', user.uid)
             }
           });
         if (user) {

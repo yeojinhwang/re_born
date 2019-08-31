@@ -10,6 +10,8 @@ import axios from "axios";
 Vue.prototype.$http = axios;
 
 Vue.config.productionTip = false;
+import VueSessionStorage from 'vue-sessionstorage'
+Vue.use(VueSessionStorage)
 
 Vue.use(Vuetify);
 const gauthOption = {

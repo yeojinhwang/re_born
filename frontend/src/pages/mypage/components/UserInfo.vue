@@ -18,7 +18,6 @@
             <a class="relative_position" style="font-size: 30px">{{user.displayName}}</a>
         </center>
     </div>
-
 </template>
 
 <script>
@@ -26,21 +25,18 @@ export default {
     name: 'MyPage',
     data () {
         return {
-            user : {
-                displayName: 'username',
-                points: 1743,
-                level: 17,
-                photoURL: 'https://picsum.photos/id/11/300/300',
-                complaints : {
-                    1 : {
-                        writer : 'username',
-                        content : '환경을 위해 유색 페트병은 사용하지 말아주세요'
-                    }
-                }
-            }
+            user : {}
+        }
+    },
+    mounted() {
+        this.getUser()
+    },
+    methods: {
+        getUser() {
+            this.user = firebase.auth().currentUser;
+            console.log(this.user)
         }
     }
-    
 }
 </script>
 <style>

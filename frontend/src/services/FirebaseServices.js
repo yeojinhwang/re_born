@@ -71,5 +71,19 @@ export default {
       .catch(function(error) {
         console.log(error);
       });
+  },
+  async getFirebaseUser (uid) {
+    await db.collection("users")
+    .doc(''+uid)
+    .get()
+    .then((doc) => {
+        var data = doc.data()
+        console.log('data', data)
+        return data
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
   }
 };

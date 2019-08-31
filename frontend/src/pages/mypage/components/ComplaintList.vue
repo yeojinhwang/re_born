@@ -1,16 +1,14 @@
 <template >
-    <v-container>
-        <v-card v-for="complaint in user.complaints" :key="complaint.title">
-            <v-list-item two-line>
-                <v-list-item-content>
-                    <!-- 리스트 타이틀, 서브타이틀 block 안됨 -->
-                    <v-list-item-title>{{complaint.title}}</v-list-item-title>
-                    <v-list-item-subtitle>{{complaint.content}}</v-list-item-subtitle>
-                    <v-list-text>{{complaint.name}}</v-list-text>
-                </v-list-item-content>
-            </v-list-item>
-        </v-card>
-    </v-container>
+    <table >
+        <tr>
+            <th width="150px">회사 이름</th>
+            <th width="200px">제목</th>
+        </tr>
+        <tr v-for="complaint in user.complaints" :key="complaint.title">
+            <td width="150px" >{{complaint.name}}</td>
+            <td width="200px" >{{complaint.title}}</td>
+        </tr>
+    </table>
 </template>
 <script>
 export default {
@@ -18,40 +16,35 @@ export default {
     data () {
         return {
             user : {
-                displayName: 'username',
-                points: 1743,
-                level: 17,
-                photoURL: 'https://picsum.photos/id/11/300/300',
                 complaints : {
                     1 : {
-                        title: '1',
-                        writer : 'username',
-                        name: 'a',
-                        content : '1환경을 위해 유색 페트병은 사용하지 말아주세요'
-                    }, 
+                        title : 'title1',
+                        content : 'content1',
+                        name : 'name1'
+                    },
                     2 : {
-                        title: '2',
-                        writer : 'username',
-                        name: 'b',
-                        content : '2환경을 위해 유색 페트병은 사용하지 말아주세요'
+                        title : 'title2',
+                        content : 'content2',
+                        name : 'name2'
                     },
                     3 : {
-                        title: '3',
-                        writer : 'username',
-                        name: 'c',
-                        content : '3환경을 위해 유색 페트병은 사용하지 말아주세요'
-                    },
-                    4 : {
-                        title: '4',
-                        writer : 'username',
-                        name: 'd',
-                        content : '4환경을 위해 유색 페트병은 사용하지 말아주세요'
+                        title : 'title3',
+                        content : 'content3',
+                        name : 'name3'
                     }
                 }
             }
         }
-    }
-    
+    },
+    // mounted() {
+    //     this.getUser()
+    // },
+    // methods: {
+    //     getUser() {
+    //         this.user = firebase.auth().currentUser;
+    //         console.log(this.user)
+    //     }
+    // }    
 }
 </script>
 <style scoped>
@@ -59,5 +52,19 @@ export default {
     position: absolute;
     top: 550px;
     left:130px
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+tr:hover {
+    background-color:#f5f5f5;
 }
 </style>
