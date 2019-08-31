@@ -2,10 +2,6 @@ import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
 import "firebase/firestore";
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
 import "firebase/storage";
 
 import router from "../router";
@@ -32,38 +28,47 @@ const db = firebase.firestore();
 const storage = firebase.storage();
 
 export default {
-    // login with google
-    async loginUserWithGoogle() {
-        let _this = this;
-        let provider = new firebase.auth.GoogleAuthProvider()
-        await firebase.auth().signInWithRedirect(provider)
-        await firebase.auth().getRedirectResult().then(function(result) {
-            // console.log(result)
-            if (result.additionalUserInfo.isNewUser) {
-                _this.createdForNewUser(result.user.uid, result.user.displayName)
-            }
-        })
-        .catch(function(error) {
-            console.log(error.code, error.message)
-        })
-    },
-    // user db update
-    async createdForNewUser(userID, name) {
-        await db.collection('users').doc(userID).set({
-            points: 0,
-            level: '0',
-            displayName: name,
-            created_at: firebase.firestore.FieldValue.serverTimestamp(),
-            photoURL: 'http://dy.gnch.or.kr/img/no-image.jpg',
-        })
-    },
-    // logout
-    logoutUser() {
-        firebase.auth().signOut().then(function() {})
-        .then(sessionStorage.clear())
-        .then(router.push('/sign'))
-        .catch(function(error) {
-            console.log(error)
-        })
-    }
-}
+  // login with google
+  async loginUserWithGoogle() {
+    let _this = this;
+    let provider = new firebase.auth.GoogleAuthProvider();
+    await firebase.auth().signInWithRedirect(provider);
+    await firebase
+      .auth()
+      .getRedirectResult()
+      .then(function(result) {
+        // console.log(result)
+        if (result.additionalUserInfo.isNewUser) {
+          _this.createdForNewUser(result.user.uid, result.user.displayName);
+        }
+      })
+      .catch(function(error) {
+        console.log(error.code, error.message);
+      });
+  },
+  // user db update
+  async createdForNewUser(userID, name) {
+    await db
+      .collection("users")
+      .doc(userID)
+      .set({
+        points: 0,
+        level: "0",
+        displayName: name,
+        created_at: firebase.firestore.FieldValue.serverTimestamp(),
+        photoURL: "http://dy.gnch.or.kr/img/no-image.jpg"
+      });
+  },
+  // logout
+  logoutUser() {
+    firebase
+      .auth()
+      .signOut()
+      .then(function() {})
+      .then(sessionStorage.clear())
+      .then(router.push("/sign"))
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
+};
