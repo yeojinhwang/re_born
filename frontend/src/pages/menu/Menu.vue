@@ -14,7 +14,7 @@
             <p>{{user.displayName}}</p>
         </div>
         <v-divider/>
-        <v-btn v-for="item in items"
+        <v-btn v-for="item in items" :key="item.title"
             color="#DDEAD3"
             flat
             @click="actFunc(item.title, item.path)"

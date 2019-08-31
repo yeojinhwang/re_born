@@ -9,7 +9,7 @@ import store from "../store";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB7BDC4zo1QEInT-LhEZgaNt9pbXhDeN3g",
-  authDomain: "reborn-4c850.firebaseapp.com",
+  authDomain: "localhost:8080",
   databaseURL: "https://reborn-4c850.firebaseio.com",
   projectId: "reborn-4c850",
   storageBucket: "reborn-4c850.appspot.com",
