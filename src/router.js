@@ -41,6 +41,12 @@ export default new Router({
               path: '/mypage',
               name: 'mypage',
               component: mypage
-          }
+          },
+      
+    {
+      path: "/camera",
+      mane: "camera",
+      component: camera
+    }
     ]
 })
