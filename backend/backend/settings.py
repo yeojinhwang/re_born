@@ -55,6 +55,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+MIDDLEWARE_CLASSES = [
+    # django-cors-headers
+    'corsheaders.middleware.CorsMiddleware',  # <- 다른 것들보다 앞에 위치시켜주세요.
+    'django.middleware.common.CommonMiddleware'
+]
+
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
@@ -126,7 +132,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIAL = True
+CORS_ALLOW_CREDENTIAL = False
 CORS_ORIGIN_WHITELIST = [
     "https://example.com",
     "https://sub.example.com",
