@@ -77,7 +77,7 @@ export default {
     .doc(''+uid)
     .get()
     .then((doc) => {
-        let data = doc.data()
+        var data = doc.data()
         console.log('data', data)
         return data
       })

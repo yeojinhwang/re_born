@@ -7,6 +7,8 @@ import "./registerServiceWorker";
 import GAuth from "vue-google-oauth2";
 
 Vue.config.productionTip = false;
+import VueSessionStorage from 'vue-sessionstorage'
+Vue.use(VueSessionStorage)
 
 Vue.use(Vuetify);
 const gauthOption = {
