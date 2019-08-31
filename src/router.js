@@ -10,7 +10,7 @@ import Search from "./pages/complaints/components/Search.vue";
 import Menu from "./pages/menu/Menu.vue";
 import mypage from "./pages/mypage/MyPage.vue";
 
-import camera from "./pages/camera/main.vue";
+import Camera from "./pages/camera/main.vue";
 Vue.use(Router);
 
 export default new Router({
@@ -18,9 +18,9 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/camera",
-      name: "camera",
-      component: camera
+      path: "/pageCam",
+      name: "pageCam",
+      component: Camera
     },
     {
       path: "/sign",

@@ -95,7 +95,7 @@ export default {
   color: #2c3e50;
   height: 100%;
   width: 100%;
-  background-color: #2196f3;
+  background-color: #ddead3;
 }
 #video {
   background-color: #000000;
