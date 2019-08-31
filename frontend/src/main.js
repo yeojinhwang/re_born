@@ -5,6 +5,9 @@ import store from "./store";
 import router from "./router";
 import "./registerServiceWorker";
 import GAuth from "vue-google-oauth2";
+import axios from "axios";
+
+Vue.prototype.$http = axios;
 
 Vue.config.productionTip = false;
 
