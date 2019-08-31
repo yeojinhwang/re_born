@@ -2,10 +2,6 @@ import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
 import "firebase/firestore";
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
 import "firebase/storage";
 
 import router from "../router";
@@ -13,7 +9,7 @@ import store from "../store";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB7BDC4zo1QEInT-LhEZgaNt9pbXhDeN3g",
-  authDomain: "reborn-4c850.firebaseapp.com",
+  authDomain: "localhost:8080",
   databaseURL: "https://reborn-4c850.firebaseio.com",
   projectId: "reborn-4c850",
   storageBucket: "reborn-4c850.appspot.com",
@@ -35,16 +31,16 @@ export default {
     // login with google
     async loginUserWithGoogle() {
         let _this = this;
-        let provider = new firebase.auth.GoogleAuthProvider()
-        await firebase.auth().signInWithRedirect(provider)
-        await firebase.auth().getRedirectResult().then(function(result) {
-            // console.log(result)
-            if (result.additionalUserInfo.isNewUser) {
-                _this.createdForNewUser(result.user.uid, result.user.displayName)
-            }
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithRedirect(provider);
+        await firebase.auth().getRedirectResult()
+            .then(function(result) {
+                if (result.additionalUserInfo.isNewUser) {
+                    _this.createdForNewUser(result.user.uid, result.user.displayName)
+                }
         })
         .catch(function(error) {
-            console.log(error.code, error.message)
+            alert(error.code, error.message)
         })
     },
     // user db update
