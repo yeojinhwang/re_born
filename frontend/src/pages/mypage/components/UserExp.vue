@@ -1,10 +1,10 @@
 <template>
     <div id="div_float">
-      <img class="tree_img" src="../../../assets/tree_sample.jpg" width="70px"/>
-      <img class="tree_img" src="../../../assets/tree_sample.jpg" width="70px"/>
-      <img class="tree_img" src="../../../assets/tree_sample.jpg" width="70px"/>
-      <img class="tree_img" src="../../../assets/tree_sample.jpg" width="70px"/>
-      <img class="tree_img" src="../../../assets/tree_sample.jpg" width="70px"/>
+      <img class="tree_img" src="../../../../public/tree_01.png" width="30px"/>
+      <img class="tree_img" src="../../../../public/tree_02.png" width="30px"/>
+      <img class="tree_img" src="../../../../public/tree_03.png" width="30px"/>
+      <img class="tree_img" src="../../../../public/tree_04.png" width="30px"/>
+      <img class="tree_img" src="../../../../public/tree_05.png" width="30px"/>
       <div class="bar back tree relative_position" :data-skill="pointPercent"></div>
       <span id="hidePercent" color="black" :bind:style="{width:percent}"></span>
     </div>    
@@ -109,6 +109,9 @@ body{
 .tree_img {
   position: relative;
   top: 120px;
+  margin-left:20px;
+  margin-right:20px;
+  margin-bottom:10px;
   border-radius: 50%;
 }
 #div_float {
