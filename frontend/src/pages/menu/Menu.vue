@@ -1,25 +1,30 @@
 <template>
-  <div style="height: 100vh;">
-    <v-layout style="background: none; margin-bottom: 1rem; margin-top: 0.7rem;">
-      <img style="height: 3rem; margin-left: 27vw;" src="../../../public/reborn-logo.png" />
+  <div>
+    <div style="height: 100vh;">
+      <v-layout style="background: none; margin-bottom: 1rem; margin-top: 0.7rem;">
+        <img style="height: 3rem; margin-left: 27vw;" src="../../../public/reborn-logo.png" />
 
-            <span style="color: #505050; font-family: 'Poiret One', cursive; font-weight: bold; font-size: 2rem; padding-top: 0.5rem; display: inline-block; line-height: normal; vertical-align: middle;">Re-born</span>
-        </v-layout>
-        <div>
-            <img :src="user.photoURL" style="height: 4rem; border-radius: 50%"/>
-        </div>
-        <div>
-            <p>{{user.displayName}}</p>
-        </div>
-        <v-divider/>
-        <v-btn v-for="item in items" :key="item.title"
-            color="#DDEAD3"
-            flat
-            @click="actFunc(item.title, item.path)"
-        >
-            <v-icon left>{{item.icon}}</v-icon>
-            {{item.title}}
-        </v-btn>
+        <span
+          style="color: #505050; font-family: 'Poiret One', cursive; font-weight: bold; font-size: 2rem; padding-top: 0.5rem; display: inline-block; line-height: normal; vertical-align: middle;"
+        >Re-born</span>
+      </v-layout>
+      <div>
+        <img :src="user.photoURL" style="height: 4rem; border-radius: 50%" />
+      </div>
+      <div>
+        <p>{{user.displayName}}</p>
+      </div>
+      <v-divider />
+      <v-btn
+        v-for="item in items"
+        :key="item.title"
+        color="#DDEAD3"
+        flat
+        @click="actFunc(item.title, item.path)"
+      >
+        <v-icon left>{{item.icon}}</v-icon>
+        {{item.title}}
+      </v-btn>
     </div>
     <div>
       <p>{{user.displayName}}</p>
@@ -60,6 +65,7 @@ export default {
   methods: {
     getUser() {
       this.user = firebase.auth().currentUser;
+      console.log(this.user);
     },
     actFunc(title, path) {
       if (title == "log out") {

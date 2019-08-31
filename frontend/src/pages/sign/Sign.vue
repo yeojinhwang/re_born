@@ -59,7 +59,6 @@ export default {
   },
   mounted() {},
   methods: {
-<<<<<<< HEAD
     googleLogin() {
       FirebaseServices.loginUserWithGoogle();
       firebase.auth().onAuthStateChanged(user => {
@@ -82,15 +81,6 @@ export default {
           router.push("/sign");
         }
       });
-=======
-    async googleLogin() {
-      await FirebaseServices.loginUserWithGoogle()
-      firebase.auth().onAuthStateChanged(function(user) {
-        console.log(user)
-        // if 
-        // router.push('/menu')
-      })
->>>>>>> 4156c937e6bb0fe12407c41d2c854e536ea14791
     }
   }
 };
@@ -123,7 +113,6 @@ html {
     box-shadow: none;
     transition-duration: 10ms;
   }
-<<<<<<< HEAD
 }
 
 .google-button__icon {
@@ -147,9 +136,7 @@ html {
   font-weight: bold;
   font-family: "Roboto", arial, sans-serif;
 }
-=======
-  .container {
-    height: 120px;
-  }
->>>>>>> 4156c937e6bb0fe12407c41d2c854e536ea14791
+.container {
+  height: 120px;
+}
 </style>
