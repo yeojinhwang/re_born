@@ -20,16 +20,19 @@ export default {
             percent: 0
         }
     },
-    mounted() {
-        this.getUser()
-    },
     methods: {
-        getUser() {
-            this.user = firebase.auth().currentUser;
-            console.log(this.user)
+      getUser() {
+          this.user = firebase.auth().currentUser;
+
+          console.log(this.user)
+      },
+      pointProgress: function() {
+            this.userPoint = this.user.points 
+            // var 
         }
     },
     mounted () {
+      this.getUser()
       this.pointPercent = this.user.points % 100
       this.percent = 315 - (this.pointPercent * 3.15)
       document.getElementById('hidePercent').style.width = `${this.percent}`+'px'
@@ -44,12 +47,6 @@ export default {
             this.percent = 333 - (this.pointPercent * 3.3)
         }
     },
-    methods : {
-        pointProgress: function() {
-            this.userPoint = this.user.points 
-            // var 
-        }
-    }
 
 }
 // document.getElementById('hidePercent').style.width = "10px"
