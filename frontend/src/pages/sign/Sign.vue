@@ -35,10 +35,11 @@ export default {
   },
   methods: {
     async googleLogin() {
-      let tmp = await FirebaseServices.loginUserWithGoogle()
-      let temp =  firebase.auth().onAuthStateChanged(function(user) {
-        // console.log(user)
-        router.push('/menu')
+      await FirebaseServices.loginUserWithGoogle()
+      firebase.auth().onAuthStateChanged(function(user) {
+        console.log(user)
+        // if 
+        // router.push('/menu')
       })
     }
   }
