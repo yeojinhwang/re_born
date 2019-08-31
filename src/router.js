@@ -8,6 +8,7 @@ import Report from "./pages/complaints/Report.vue";
 import ReportCard from "./pages/complaints/components/ReportCard.vue";
 import Search from "./pages/complaints/components/Search.vue";
 import Menu from "./pages/menu/Menu.vue";
+import mypage from "./pages/mypage/MyPage.vue";
 
 import camera from "./pages/camera/main.vue";
 Vue.use(Router);
@@ -40,6 +41,12 @@ export default new Router({
       path: "/report",
       name: "Report",
       component: Report
+    },
+
+    {
+      path: "/mypage",
+      name: "mypage",
+      component: mypage
     }
   ]
 });
