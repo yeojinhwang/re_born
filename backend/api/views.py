@@ -4,6 +4,7 @@ import json
 from ibm_watson import VisualRecognitionV3
 from django.http import JsonResponse
 from rest_framework.response import Response
+from rest_framework import status
 # Create your views here.
 
 visual_recognition = VisualRecognitionV3(
@@ -13,7 +14,7 @@ visual_recognition = VisualRecognitionV3(
 
 @api_view(['POST', 'GET'])
 def get_result(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
         path = request.GET.get('src', None)
         result = {'data': path}
         print(result)
