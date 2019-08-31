@@ -14,14 +14,14 @@
             <p>{{user.displayName}}</p>
         </div>
         <v-divider/>
-        <v-btn v-for="item in items" :key="item.title"
+        <div v-for="item in items" :key="item.title"
             color="#DDEAD3"
             flat
             @click="actFunc(item.title, item.path)"
         >
             <v-icon left>{{item.icon}}</v-icon>
             {{item.title}}
-        </v-btn>
+        </div>
     </div>
 </template>
 

@@ -14,21 +14,19 @@ export default {
     name: 'UserExp',
     data () {
         return {
-            user : {
-                displayName: 'username',
-                points: 1760,
-                level: 17,
-                photoURL: 'https://picsum.photos/id/11/300/300',
-                complaints : {
-                    1 : {
-                        writer : 'username',
-                        content : '환경을 위해 유색 페트병은 사용하지 말아주세요'
-                    }
-                }
-            },
+            user : {},
             userPoint : 0,
             pointPercent: 0,
             percent: 0
+        }
+    },
+    mounted() {
+        this.getUser()
+    },
+    methods: {
+        getUser() {
+            this.user = firebase.auth().currentUser;
+            console.log(this.user)
         }
     },
     mounted () {
@@ -44,7 +42,6 @@ export default {
             this.pointPercent = this.user.points % 100
             // document.getElementById('hidePercent').style.width = "10px"
             this.percent = 315 - (this.pointPercent * 3.15)
-            console.log(this.percent)
         }
     },
     methods : {

@@ -17,41 +17,18 @@ export default {
     name: 'ComplaintList',
     data () {
         return {
-            user : {
-                displayName: 'username',
-                points: 1743,
-                level: 17,
-                photoURL: 'https://picsum.photos/id/11/300/300',
-                complaints : {
-                    1 : {
-                        title: '1',
-                        writer : 'username',
-                        name: 'a',
-                        content : '1환경을 위해 유색 페트병은 사용하지 말아주세요'
-                    }, 
-                    2 : {
-                        title: '2',
-                        writer : 'username',
-                        name: 'b',
-                        content : '2환경을 위해 유색 페트병은 사용하지 말아주세요'
-                    },
-                    3 : {
-                        title: '3',
-                        writer : 'username',
-                        name: 'c',
-                        content : '3환경을 위해 유색 페트병은 사용하지 말아주세요'
-                    },
-                    4 : {
-                        title: '4',
-                        writer : 'username',
-                        name: 'd',
-                        content : '4환경을 위해 유색 페트병은 사용하지 말아주세요'
-                    }
-                }
-            }
+            user : {}
         }
-    }
-    
+    },
+    mounted() {
+        this.getUser()
+    },
+    methods: {
+        getUser() {
+            this.user = firebase.auth().currentUser;
+            console.log(this.user)
+        }
+    }    
 }
 </script>
 <style scoped>
