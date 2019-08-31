@@ -9,7 +9,7 @@
         id="snap"
         src="../../assets/camera_button.png"
         v-on:click="capture()"
-        style="width:20%; margin-top:20vh"
+        style="width:20%; margin-top:25vh"
       />
     </div>
   </div>
@@ -17,6 +17,8 @@
 
 <script>
 import firebase from "firebase";
+import axios from "axios";
+
 const Swal = require("sweetalert2");
 
 export default {
@@ -71,6 +73,13 @@ export default {
           uploadTask.put(blob).then(function(snapshot) {
             snapshot.ref.getDownloadURL().then(res => {
               console.log(res);
+
+              // axios 요청
+              const baseURI = "https://jsonplaceholder.typicode.com";
+              this.$http.get(`${baseURI}/posts`).then(result => {
+                console.log(result);
+                this.posts = result.data;
+              });
             });
           })
         );
