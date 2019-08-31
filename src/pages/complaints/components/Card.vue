@@ -1,5 +1,5 @@
 <template>
-  <v-layout mt-5 wrap>
+  <v-layout mt-5 wrap style="justify-content:center;">
     <!-- v-bind="{ [`xs${card.flex}`]: true }" -->
     <v-flex v-for="card in cards" :key="card.title" xs12 sm6 md4 lg3>
       <v-card>
@@ -14,9 +14,11 @@
 
         <v-card-actions style="justify-content:center;">
           <div class="flex-grow-1"></div>
-          <v-btn icon>
-            <v-icon>mdi-bell-alert</v-icon>
-          </v-btn>
+          <router-link to="/report" style="text-decoration:none;">
+            <v-btn icon>
+              <v-icon>mdi-bell-alert</v-icon>
+            </v-btn>
+          </router-link>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -48,4 +50,7 @@ export default {
 </script>
 
 <style>
+.flex {
+  margin: 0px 0px 10px 0px;
+}
 </style>

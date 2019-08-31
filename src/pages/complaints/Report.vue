@@ -1,17 +1,18 @@
 <template>
-  <div class="Complaints">
+  <div class="Report">
     <Search></Search>
-    <Card></Card>
+    <ReportCard></ReportCard>
   </div>
 </template>
 
 <script>
-import Card from "./components/Card";
 import Search from "./components/Search";
+import ReportCard from "./components/ReportCard";
+
 export default {
   components: {
-    Card,
-    Search
+    Search,
+    ReportCard
   }
 };
 </script>

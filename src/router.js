@@ -4,6 +4,9 @@ import firebase from "firebase";
 import firebaseApp from "firebase/app";
 import Sign from "./pages/sign/Sign.vue";
 import Complaints from "./pages/complaints/Complaints.vue";
+import Report from "./pages/complaints/Report.vue";
+import ReportCard from "./pages/complaints/components/ReportCard.vue";
+import Search from "./pages/complaints/components/Search.vue";
 
 Vue.use(Router);
 
@@ -20,6 +23,11 @@ export default new Router({
       path: "/complaints",
       name: "Complaints",
       component: Complaints
+    },
+    {
+      path: "/report",
+      name: "Report",
+      component: Report
     }
   ]
 });
