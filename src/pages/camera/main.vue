@@ -1,15 +1,17 @@
 <template>
   <div id="cam">
-    <div v-show="captures === 0">
-      <video ref="video" id="video" width="100%" height="60%" autoplay></video>
+    <div style="width:100vw; height: 60vh">
+      <video ref="video" id="video" autoplay></video>
+      <canvas ref="canvas" id="canvas" width="640" height="480"></canvas>
     </div>
-    <img v-if="captures !== 0" :src="captures" width="100%" height="60%" />
-    <div>
-      <!-- <button> -->
-      <img id="snap" src="../../assets/camera_button.png" v-on:click="capture()" width="15%" />
-      <!-- </button> -->
+    <div style="height: 40vh">
+      <img
+        id="snap"
+        src="../../assets/camera_button.png"
+        v-on:click="capture()"
+        style="width:20%; margin-top:20vh"
+      />
     </div>
-    <canvas ref="canvas" id="canvas" width="640" height="480"></canvas>
   </div>
 </template>
 
@@ -28,11 +30,19 @@ export default {
   },
   mounted() {
     this.video = this.$refs.video;
+    console.log(this.video);
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
-        this.$refs.video.srcObject = stream;
-        this.$refs.video.play();
-      });
+      navigator.mediaDevices
+        .getUserMedia({
+          audio: false,
+          video: {
+            facingMode: "environment"
+          }
+        })
+        .then(stream => {
+          this.$refs.video.srcObject = stream;
+          this.$refs.video.play();
+        });
     }
   },
   methods: {
@@ -85,9 +95,12 @@ export default {
   color: #2c3e50;
   height: 100%;
   width: 100%;
+  background-color: #2196f3;
 }
 #video {
   background-color: #000000;
+  width: 100%;
+  height: 100%;
 }
 #canvas {
   display: none;
