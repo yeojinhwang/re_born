@@ -64,8 +64,14 @@ export default {
   },
   methods: {
     getUser() {
-      this.user = firebase.auth().currentUser;
-      console.log(this.user);
+      let _this = this;
+      // this.user = firebase.auth().currentUser;
+      firebase.auth().onAuthStateChanged(function(user){
+        if (user) {
+          _this.user = user;
+          // console.log(_this.user);
+        }
+      })
     },
     actFunc(title, path) {
       if (title == "log out") {
