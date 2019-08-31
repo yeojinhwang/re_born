@@ -17,8 +17,8 @@
 
 <script>
 import firebase from "firebase";
-import axios from "axios";
-
+const axios = require("axios");
+axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 const Swal = require("sweetalert2");
 
 export default {
@@ -75,11 +75,16 @@ export default {
               console.log(res);
 
               // axios 요청
-              const baseURI = "https://jsonplaceholder.typicode.com";
-              this.$http.get(`${baseURI}/posts`).then(result => {
-                console.log(result);
-                this.posts = result.data;
-              });
+              axios
+                .post(
+                  "http://django-env.6xnmcvcydx.ap-northeast-2.elasticbeanstalk.com/api/get-result",
+                  {
+                    src: res
+                  }
+                )
+                .then(response => {
+                  console.log(response);
+                });
             });
           })
         );
