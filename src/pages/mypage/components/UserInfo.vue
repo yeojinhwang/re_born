@@ -5,6 +5,7 @@
                 src="../../../assets/recycle.png"
                 width="300"
                 height="260"
+                style=" border:2px solid white"
             />
             <img 
                 :src="user.photoURL"
