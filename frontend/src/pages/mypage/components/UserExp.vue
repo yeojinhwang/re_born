@@ -41,7 +41,7 @@ export default {
         percentComputed() {
             this.pointPercent = this.user.points % 100
             // document.getElementById('hidePercent').style.width = "10px"
-            this.percent = 315 - (this.pointPercent * 3.15)
+            this.percent = 333 - (this.pointPercent * 3.3)
         }
     },
     methods : {
@@ -106,8 +106,8 @@ body{
 .tree_img {
   position: relative;
   top: 120px;
-  margin-left:20px;
-  margin-right:20px;
+  margin-left:22px;
+  margin-right:22px;
   margin-bottom:10px;
   border-radius: 50%;
 }
@@ -116,7 +116,7 @@ body{
 }
 #hidePercent {
   height: 35px;
-  width: 315px;
+  width: 330px;
   background-color: #EEEEEE;
   /* background-color: black; */
   position: relative;

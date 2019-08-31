@@ -36,9 +36,9 @@ export default {
             user: null,
             state: null,
             items: [
-                {title: 'my page', icon: 'dashboard', path: ''},
-                {title: 'recycle', icon: 'eco', path: ''},
-                {title: 'connect', icon: 'question_answer', path: ''},
+                {title: 'my page', icon: 'dashboard', path: '/mypage'},
+                {title: 'recycle', icon: 'eco', path: '/camera'},
+                {title: 'connect', icon: 'question_answer', path: '/complaints'},
                 {title: 'log out', icon: 'account_box', path: ''}
             ]
         }
