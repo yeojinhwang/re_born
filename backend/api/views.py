@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 import json
 from ibm_watson import VisualRecognitionV3
+from django.http import JsonResponse
 # Create your views here.
 
 visual_recognition = VisualRecognitionV3(
@@ -13,7 +14,7 @@ def get_result(request):
     if request.method == 'POST':
         path = request.data.get('src', None)
         result = {'data': path}
-        return Response(data=result, status=status.HTTP_200_OK)
+        return JsonResponse(data=result, status=status.HTTP_200_OK)
         # with (path, 'rb') as image_file:
             # classes = visual_recognition.classify(
             #     image_file,
