@@ -2,6 +2,11 @@ import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
 import "firebase/firestore";
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
+import "firebase/storage";
 
 import router from "../router";
 import store from "../store";
@@ -24,6 +29,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
 
 const db = firebase.firestore();
+const storage = firebase.storage();
 
 export default {
     // login with google

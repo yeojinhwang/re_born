@@ -1,16 +1,16 @@
-import Vue from 'vue'
-import Vuetify from 'vuetify'
-import App from './App.vue'
-import store from './store'
-import router from './router'
-import './registerServiceWorker'
+import Vue from "vue";
+import Vuetify from "vuetify";
+import App from "./App.vue";
+import store from "./store";
+import router from "./router";
+import "./registerServiceWorker";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-Vue.use(Vuetify)
+Vue.use(Vuetify);
 
 new Vue({
   store,
   router,
   render: h => h(App)
-}).$mount('#app')
+}).$mount("#app");
