@@ -1,16 +1,22 @@
 <template>
-    <container>
+    <div>
         <center>
             <img 
-                :src="user.photoURL"
-                width="150"
-                height="150"
-                id="user_image_round"
-                style="margin-top: 10px"
+                src="../../../assets/recycle.png"
+                width="300"
+                height="260"
             />
-            <p class="text-align-center" style="margin: auto;font-size: 30px">{{user.displayName}}</p>
+            <img 
+                :src="user.photoURL"
+                width="200"
+                height="200"
+                id="user_img"
+            />
+            <br>
+            <div id="percent"></div>
+            <a class="relative_position" style="font-size: 30px">{{user.displayName}}</a>
         </center>
-    </container>
+    </div>
 
 </template>
 
@@ -21,8 +27,8 @@ export default {
         return {
             user : {
                 displayName: 'username',
-                points: 10,
-                level: 'bronze',
+                points: 1743,
+                level: 17,
                 photoURL: 'https://picsum.photos/id/11/300/300',
                 complaints : {
                     1 : {
@@ -37,7 +43,23 @@ export default {
 }
 </script>
 <style>
-    #user_image_round {
+    #user_img {
+        position: absolute;
+        top: 150px;
+        left: 90px;
         border-radius: 50%;
+        float:center;
+        z-index:10
+    }
+    .relative_position {
+        position: relative;
+        top: 100px;
+    }
+    #percent {
+        height: 25px;
+        background-color: black;
+        z-index: 1000000;
+        position: absolute;
+        top: 300px;
     }
 </style>

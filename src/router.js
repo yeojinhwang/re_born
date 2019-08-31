@@ -3,8 +3,9 @@ import Router from 'vue-router'
 import firebase from 'firebase'
 import firebaseApp from 'firebase/app'
 import Sign from './pages/sign/Sign.vue'
-
 import test from './pages/sign/test.vue'
+import mypage from './pages/mypage/MyPage.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -20,6 +21,11 @@ export default new Router({
               path: '/test',
               name: 'test',
               component: test
+          },
+          {
+              path: '/mypage',
+              name: 'mypage',
+              component: mypage
           }
       ]
   })
