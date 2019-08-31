@@ -14,7 +14,7 @@ def get_result(request):
     if request.method == 'POST':
         path = request.data.get('src', None)
         result = {'data': path}
-        return JsonResponse(data=result, status=status.HTTP_200_OK)
+        return JsonResponse(result)
         # with (path, 'rb') as image_file:
             # classes = visual_recognition.classify(
             #     image_file,
