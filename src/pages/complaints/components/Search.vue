@@ -9,7 +9,7 @@ export default {};
 </script>
 
 <style>
-.search{
-    margin:20px;
+.search {
+  margin: 20px;
 }
 </style>

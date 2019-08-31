@@ -2,7 +2,10 @@ import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
 import "firebase/firestore";
+<<<<<<< HEAD
+=======
 
+>>>>>>> develop
 import "firebase/storage";
 
 import router from "../router";
