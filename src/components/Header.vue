@@ -4,6 +4,7 @@
             absolute
             color="#B3D996"
             dark
+            flat
             scroll-off-screen
             scroll-target="#scrolling-techniques"
         >
