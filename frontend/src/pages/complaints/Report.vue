@@ -5,15 +5,15 @@
       <v-flex xs12>
         <v-card>
           <div class="background">
-            <v-card-title>접수 건수</v-card-title>
-            <v-card-title>00건</v-card-title>
+            <h1>현재까지 청원 수</h1>
+            <h2>{{count}}건</h2>
           </div>
           <div class="content">
-            <h3>{{company_name}}</h3>
+            <h3>삼성</h3>
             <textarea id="txa" cols="30" rows="10">청원 내용을 입력해주세요.</textarea>
           </div>
           <v-card-actions>
-            <v-btn outlined color="indigo">취소하기</v-btn>
+            <v-btn outlined color="indigo" @click="show()">취소하기</v-btn>
             <v-btn outlined @click="repo()">청원하기</v-btn>
           </v-card-actions>
         </v-card>
@@ -28,6 +28,7 @@ import { EventBus } from "../../utils/event-bus";
 
 import FirebaseServices from "../../services/FirebaseServices";
 import firebase from "firebase";
+import { ok } from "assert";
 
 export default {
   components: {
@@ -44,8 +45,17 @@ export default {
   methods: {
     async init() {
       const response = await FirebaseServices.getCompaintList();
+      console.log(response);
       this.complaints = response;
-      console.log(complaints);
+    },
+    repo() {
+      swal("Good job!", "청원 성공", "success");
+      this.count = this.count + 1;
+    },
+    show() {
+      complaints.array.forEach(element => {
+        console.log(element);
+      });
     }
   },
   mounted() {
@@ -58,11 +68,6 @@ export default {
 </script>
 
 <style>
-.v-card__title {
-  justify-content: center;
-  color: white;
-  height: 100px;
-}
 .v-card__actions {
   justify-content: flex-end;
 }
@@ -82,5 +87,20 @@ export default {
 textarea {
   width: 100%;
   padding: 5px;
+}
+h3 {
+  margin: 5px;
+}
+h1 {
+  text-align: center;
+  color: white;
+  height: 130px;
+  line-height: 130px;
+}
+h2 {
+  text-align: center;
+  color: white;
+  height: 50px;
+  line-height: 25px;
 }
 </style>

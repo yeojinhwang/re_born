@@ -57,6 +57,7 @@ export default {
       EventBus.$emit("use-eventbus", companyname);
     }
   },
+  
   mounted() {
     this.init();
   }

@@ -35,7 +35,6 @@ export default {
       .auth()
       .signInWithPopup(provider)
       .then(function(result) {
-
         // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken;
         // The signed-in user info.
@@ -75,20 +74,21 @@ export default {
       });
   },
 
-  async getFirebaseUser (uid) {
-    await db.collection("users")
-    .doc(''+uid)
-    .get()
-    .then((doc) => {
-        var data = doc.data()
-        console.log('data', data)
-        return data
+  async getFirebaseUser(uid) {
+    await db
+      .collection("users")
+      .doc("" + uid)
+      .get()
+      .then(doc => {
+        var data = doc.data();
+        console.log("data", data);
+        return data;
       })
-      .catch((err) => {
-        console.log(err)
-      })
-
-async getCompanyList() {
+      .catch(err => {
+        console.log(err);
+      });
+  },
+  async getCompanyList() {
     const DBCOMPANY = await db.collection("company");
     return DBCOMPANY.orderBy("name")
       .get()
@@ -111,7 +111,6 @@ async getCompanyList() {
         });
       }) /* eslint-disable no-console */
       .catch(error => console.log(error));
-
   }
   // add complaint db
   // async addRepo(complaint) {
