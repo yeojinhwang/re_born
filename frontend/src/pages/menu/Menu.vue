@@ -9,7 +9,7 @@
         >Re-born</span>
       </v-layout>
       <div >
-        <img :src="user.photoURL" id="userImg" style="margin-left: 150px; border-radius: 50%" />
+        <img :src="user.photoURL" id="userImg" style="margin:30px 0 0 150px; border-radius: 50%" />
       </div>
       <v-divider />
       <div id="btnPosition">
@@ -40,11 +40,11 @@ export default {
     }
   },
   mounted() {
-    this.getUserId();
+    this.getUser();
     
   },
   methods: {
-     getUserId() {
+     getUser() {
       let _this = this;
       // this.user = firebase.auth().currentUser;
       firebase.auth().onAuthStateChanged(function(user){
@@ -100,18 +100,26 @@ html {
     height: 150px;
     margin-top : 20px;
     position : absolute;
-    left: -40px;
-}
-.linkBtn {
-    width: 155px;
-    height : 155px;
-    margin : 16px 16px 16px 16px;
-    z-index : -1
-    
+    left: -20px;
 }
 #btnPosition {
-    position : absolute;
-    top: 260px;
-    left: 1px;
+  margin-top : 200px
+}
+.linkBtn {
+  text-decoration: none;
+  color: rgba(73, 72, 72, 0.808);
+  background: rgb(110, 108, 108);
+  padding: 15px 40px;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  width: 80%;
+  height: 50px;
+  margin: 20px 0 0 35px;
+}
+.linkBtn {
+  color: rgba(73, 72, 72, 0.808);
+  box-shadow: 0 5px 15px rgba(73, 72, 72, 0.808);
 }
 </style>

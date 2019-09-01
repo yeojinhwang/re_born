@@ -23,7 +23,6 @@ export default {
     methods: {
       getUser() {
           this.user = firebase.auth().currentUser;
-
           console.log(this.user)
       },
       pointProgress: function() {
@@ -36,7 +35,6 @@ export default {
       this.pointPercent = this.user.points % 100
       this.percent = 315 - (this.pointPercent * 3.15)
       document.getElementById('hidePercent').style.width = `${this.percent}`+'px'
-
       this.pointProgress()
       this.percentComputed
     },
@@ -44,10 +42,9 @@ export default {
         percentComputed() {
             this.pointPercent = this.user.points % 100
             // document.getElementById('hidePercent').style.width = "10px"
-            this.percent = 333 - (this.pointPercent * 3.3)
+            this.percent = 360 - (this.pointPercent * 3.6)
         }
     },
-
 }
 // document.getElementById('hidePercent').style.width = "10px"
 </script>
@@ -79,7 +76,6 @@ body{
     width: 0%
   }
 }
-
 .bar{
   background-color: #EEE;
   padding: 2px;
@@ -103,7 +99,7 @@ body{
 .tree_img {
   position: relative;
   top: 120px;
-  margin-left:22px;
+  margin-left:27px;
   margin-right:22px;
   margin-bottom:10px;
   border-radius: 50%;
@@ -113,7 +109,7 @@ body{
 }
 #hidePercent {
   height: 35px;
-  width: 330px;
+  width: 355px;
   background-color: #EEEEEE;
   /* background-color: black; */
   position: relative;
