@@ -43,6 +43,7 @@ export default {
         }
       })
       .catch(function(error) {
+        /* eslint-disable no-console */
         console.log(error.code, error.message);
       });
   },
@@ -68,7 +69,36 @@ export default {
       .then(sessionStorage.clear())
       .then(router.push("/sign"))
       .catch(function(error) {
+        /* eslint-disable no-console */
         console.log(error);
       });
+  },
+  async getCompanyList() {
+    const DBCOMPANY = await db.collection("company");
+    return DBCOMPANY.orderBy("name")
+      .get()
+      .then(docSnapshots => {
+        return docSnapshots.docs.map(doc => {
+          let data = doc.data();
+          return data;
+        });
+      }) /* eslint-disable no-console */
+      .catch(error => console.log(error));
+  },
+
+  async getCompaintList() {
+    const DBCOMPLAINTS = await db.collection("complaints");
+    return DBCOMPLAINTS.get()
+      .then(docSnapshots => {
+        return docSnapshots.docs.map(doc => {
+          let data = doc.data();
+          return data;
+        });
+      }) /* eslint-disable no-console */
+      .catch(error => console.log(error));
   }
+  // add complaint db
+  // async addRepo(complaint) {
+  //   await db.collection("complaints").set({});
+  // }
 };
