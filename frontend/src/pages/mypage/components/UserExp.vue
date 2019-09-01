@@ -100,7 +100,7 @@ body{
   position: relative;
   top: 120px;
   margin-left:27px;
-  margin-right:22px;
+  margin-right:23px;
   margin-bottom:10px;
   border-radius: 50%;
 }

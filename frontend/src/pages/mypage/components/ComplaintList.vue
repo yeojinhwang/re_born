@@ -55,8 +55,10 @@ export default {
 }
 table {
   border-collapse: collapse;
-  width: 100%;
-  margin-top: 10px;
+  width: 90%;
+  margin-left: auto; 
+  margin-right: auto;
+  margin-top: 50px;
 }
 th, td {
   padding: 8px;

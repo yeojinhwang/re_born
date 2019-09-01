@@ -22,7 +22,7 @@
             @click="actFunc(item.title, item.path)"
         >
             <v-icon left>{{item.icon}}</v-icon>
-            {{item.title}}
+            <span style="font-family: 'Poiret One', cursive; font-size: 20px;">{{item.title}}</span>
         </v-btn>
       </div>
     </div>
@@ -67,7 +67,7 @@ export default {
     actFunc(title, path) {
       if (title == "log out") {
         let tmp = FirebaseServices.logoutUser();
-        router.push("/sign");
+        router.push("/");
       } else {
         router.push(path);
       }
@@ -102,8 +102,8 @@ html {
 }
 .linkBtn {
   text-decoration: none;
-  color: rgba(73, 72, 72, 0.808);
-  background: rgb(110, 108, 108);
+  color: rgba(255, 255, 255, 0.8);
+  background: rgb(145, 92, 182);
   padding: 15px 40px;
   border-radius: 4px;
   font-weight: normal;
@@ -114,7 +114,7 @@ html {
   margin: 20px 0 0 35px;
 }
 .linkBtn {
-  color: rgba(73, 72, 72, 0.808);
-  box-shadow: 0 5px 15px rgba(73, 72, 72, 0.808);
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
 }
 </style>
