@@ -1,21 +1,20 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import store from './store'
-import router from './router'
+import store from "./store";
+import router from "./router";
 
 export default {
-  name: 'App',
+  name: "App",
   store,
   router,
-  components: {
-  },
+  components: {},
   data: () => ({
     //
-  }),
+  })
 };
 </script>

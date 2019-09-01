@@ -25,7 +25,7 @@ SECRET_KEY = 'c)z&lk&jszqilwefjx=r2lus0ub3=8^sgdt403i!0t^5z(@**c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['django-env.6xnmcvcydx.ap-northeast-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -53,6 +53,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+MIDDLEWARE_CLASSES = [
+    # django-cors-headers
+    'corsheaders.middleware.CorsMiddleware',  # <- 다른 것들보다 앞에 위치시켜주세요.
+    'django.middleware.common.CommonMiddleware'
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -126,7 +132,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIAL = True
+CORS_ALLOW_CREDENTIAL = False
 CORS_ORIGIN_WHITELIST = [
     "https://example.com",
     "https://sub.example.com",
