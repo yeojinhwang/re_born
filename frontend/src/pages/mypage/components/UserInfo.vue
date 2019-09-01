@@ -1,14 +1,10 @@
 <template>
     <div>
         <center>
+            <div id="gradient"></div>
+            
             <img 
-                src="../../../assets/recycle.png"
-                width="300"
-                height="260"
-                style=" border:2px solid white"
-            />
-            <img 
-                :src="user.photoURL"
+                :src="imgUrl"
                 width="200"
                 height="200"
                 id="user_img"
@@ -25,7 +21,8 @@ export default {
     name: 'MyPage',
     data () {
         return {
-            user : {}
+            user : {},
+            imgUrl: ''
         }
     },
     mounted() {
@@ -33,9 +30,15 @@ export default {
     },
     methods: {
         getUser() {
-            this.user = firebase.auth().currentUser;
-            console.log(this.user)
+      let _this = this;
+      // this.user = firebase.auth().currentUser;
+      firebase.auth().onAuthStateChanged(function(user){
+        if (user) {
+          _this.user = user;
+          console.log(_this.user);
         }
+      })
+    },
     }
 }
 </script>
@@ -43,7 +46,7 @@ export default {
     #user_img {
         position: absolute;
         top: 150px;
-        left: 90px;
+        left: 100px;
         border-radius: 50%;
         float:center;
         z-index:10
@@ -58,5 +61,9 @@ export default {
         z-index: 1000000;
         position: absolute;
         top: 300px;
+    }
+    #gradient {
+        height: 300px;
+        background-image: linear-gradient(to bottom right, #33cccc, #2196f3)
     }
 </style>
