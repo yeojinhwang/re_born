@@ -1,61 +1,53 @@
 <template>
-  <div id="div_float">
-    <img class="tree_img" src="../../../assets/tree_sample.jpg" width="70px" />
-    <img class="tree_img" src="../../../assets/tree_sample.jpg" width="70px" />
-    <img class="tree_img" src="../../../assets/tree_sample.jpg" width="70px" />
-    <img class="tree_img" src="../../../assets/tree_sample.jpg" width="70px" />
-    <img class="tree_img" src="../../../assets/tree_sample.jpg" width="70px" />
-    <div class="bar back tree relative_position" :data-skill="pointPercent"></div>
-    <span id="hidePercent" color="black" :bind:style="{width:percent}"></span>
-  </div>
+
+    <div id="div_float">
+      <img class="tree_img" src="../../../../public/tree_01.png" width="30px"/>
+      <img class="tree_img" src="../../../../public/tree_02.png" width="30px"/>
+      <img class="tree_img" src="../../../../public/tree_03.png" width="30px"/>
+      <img class="tree_img" src="../../../../public/tree_04.png" width="30px"/>
+      <img class="tree_img" src="../../../../public/tree_05.png" width="30px"/>
+      <div class="bar back tree relative_position" :data-skill="pointPercent"></div>
+      <span id="hidePercent" color="black" :bind:style="{width:percent}"></span>
+    </div>    
 </template>
 <script>
 export default {
-  name: "UserExp",
-  data() {
-    return {
-      user: {
-        displayName: "username",
-        points: 1760,
-        level: 17,
-        photoURL: "https://picsum.photos/id/11/300/300",
-        complaints: {
-          1: {
-            writer: "username",
-            content: "환경을 위해 유색 페트병은 사용하지 말아주세요"
-          }
+    name: 'UserExp',
+    data () {
+        return {
+            user : {},
+            userPoint : 0,
+            pointPercent: 0,
+            percent: 0
         }
+    },
+    methods: {
+      getUser() {
+          this.user = firebase.auth().currentUser;
+          console.log(this.user)
       },
-      userPoint: 0,
-      pointPercent: 0,
-      percent: 0
-    };
-  },
-  mounted() {
-    this.pointPercent = this.user.points % 100;
-    this.percent = 315 - this.pointPercent * 3.15;
-    document.getElementById("hidePercent").style.width =
-      `${this.percent}` + "px";
+      pointProgress: function() {
+            this.userPoint = this.user.points 
+            // var 
+        }
+    },
+    mounted () {
+      this.getUser()
+      this.pointPercent = this.user.points % 100
+      this.percent = 315 - (this.pointPercent * 3.15)
+      document.getElementById('hidePercent').style.width = `${this.percent}`+'px'
+      this.pointProgress()
+      this.percentComputed
+    },
+    computed: {
+        percentComputed() {
+            this.pointPercent = this.user.points % 100
+            // document.getElementById('hidePercent').style.width = "10px"
+            this.percent = 360 - (this.pointPercent * 3.6)
+        }
+    },
+}
 
-    this.pointProgress();
-    this.percentComputed;
-  },
-  computed: {
-    percentComputed() {
-      this.pointPercent = this.user.points % 100;
-      // document.getElementById('hidePercent').style.width = "10px"
-      this.percent = 315 - this.pointPercent * 3.15;
-      /* eslint-disable no-console */
-      console.log(this.percent);
-    }
-  },
-  methods: {
-    pointProgress: function() {
-      this.userPoint = this.user.points;
-      // var
-    }
-  }
-};
 // document.getElementById('hidePercent').style.width = "10px"
 </script>
 <style scoped>
@@ -87,8 +79,9 @@ body {
   }
 }
 
-.bar {
-  background-color: #eee;
+.bar{
+  background-color: #EEE;
+
   padding: 2px;
   border-radius: 15px;
   margin: 15px;
@@ -110,6 +103,9 @@ body {
 .tree_img {
   position: relative;
   top: 120px;
+  margin-left:27px;
+  margin-right:22px;
+  margin-bottom:10px;
   border-radius: 50%;
 }
 #div_float {
@@ -117,8 +113,10 @@ body {
 }
 #hidePercent {
   height: 35px;
-  width: 315px;
-  background-color: #eeeeee;
+
+  width: 355px;
+  background-color: #EEEEEE;
+
   /* background-color: black; */
   position: relative;
   top: 50px;

@@ -1,13 +1,10 @@
 <template>
     <div>
         <center>
+            <div id="gradient"></div>
+            
             <img 
-                src="../../../assets/recycle.png"
-                width="300"
-                height="260"
-            />
-            <img 
-                :src="user.photoURL"
+                :src="imgUrl"
                 width="200"
                 height="200"
                 id="user_img"
@@ -17,7 +14,6 @@
             <a class="relative_position" style="font-size: 30px">{{user.displayName}}</a>
         </center>
     </div>
-
 </template>
 
 <script>
@@ -25,28 +21,32 @@ export default {
     name: 'MyPage',
     data () {
         return {
-            user : {
-                displayName: 'username',
-                points: 1743,
-                level: 17,
-                photoURL: 'https://picsum.photos/id/11/300/300',
-                complaints : {
-                    1 : {
-                        writer : 'username',
-                        content : '환경을 위해 유색 페트병은 사용하지 말아주세요'
-                    }
-                }
-            }
+            user : {},
+            imgUrl: ''
         }
+    },
+    mounted() {
+        this.getUser()
+    },
+    methods: {
+        getUser() {
+      let _this = this;
+      // this.user = firebase.auth().currentUser;
+      firebase.auth().onAuthStateChanged(function(user){
+        if (user) {
+          _this.user = user;
+          console.log(_this.user);
+        }
+      })
+    },
     }
-    
 }
 </script>
 <style>
     #user_img {
         position: absolute;
         top: 150px;
-        left: 90px;
+        left: 100px;
         border-radius: 50%;
         float:center;
         z-index:10
@@ -61,5 +61,9 @@ export default {
         z-index: 1000000;
         position: absolute;
         top: 300px;
+    }
+    #gradient {
+        height: 300px;
+        background-image: linear-gradient(to bottom right, #33cccc, #2196f3)
     }
 </style>

@@ -17,8 +17,7 @@
 
 <script>
 import firebase from "firebase";
-import axios from "axios";
-
+const axios = require("axios");
 const Swal = require("sweetalert2");
 
 export default {
@@ -73,13 +72,24 @@ export default {
           uploadTask.put(blob).then(function(snapshot) {
             snapshot.ref.getDownloadURL().then(res => {
               console.log(res);
+              // axios 요청\
+              // axios
+              //   .get("http://127.0.0.1:8000/api/get-result", {
+              //     params: {
+              //       src: res
+              //     }
+              //   })
+              //   .then(function(response) {
+              //     console.log(response);
+              //   });
 
-              // axios 요청
-              const baseURI = "https://jsonplaceholder.typicode.com";
-              this.$http.get(`${baseURI}/posts`).then(result => {
-                console.log(result);
-                this.posts = result.data;
-              });
+              axios
+                .post("http://127.0.0.1:8000/api/get-result/", {
+                  src: res
+                })
+                .then(response => {
+                  console.log(response);
+                });
             });
           })
         );

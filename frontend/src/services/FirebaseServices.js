@@ -24,40 +24,41 @@ firebase.initializeApp(firebaseConfig);
 
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
 
-const db = firebase.firestore();
+var db = firebase.firestore();
 const storage = firebase.storage();
 
 export default {
   // login with google
-  async loginUserWithGoogle() {
-    let _this = this;
-    let provider = new firebase.auth.GoogleAuthProvider();
-    await firebase.auth().signInWithRedirect(provider);
-    await firebase
+  loginUserWithGoogle() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase
       .auth()
-      .getRedirectResult()
+      .signInWithPopup(provider)
       .then(function(result) {
-        // console.log(result)
-        if (result.additionalUserInfo.isNewUser) {
-          _this.createdForNewUser(result.user.uid, result.user.displayName);
-        }
-      })
-      .catch(function(error) {
-        /* eslint-disable no-console */
-        console.log(error.code, error.message);
+
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        // ...
       });
   },
-  // user db update
-  async createdForNewUser(userID, name) {
-    await db
-      .collection("users")
+  // // user db update
+  createdForNewUser(userID, name) {
+    db.collection("users")
       .doc(userID)
       .set({
-        points: 0,
-        level: "0",
-        displayName: name,
         created_at: firebase.firestore.FieldValue.serverTimestamp(),
-        photoURL: "http://dy.gnch.or.kr/img/no-image.jpg"
+        displayName: name,
+        level: "0",
+        photoURL: "http://dy.gnch.or.kr/img/no-image.jpg",
+        points: 0
+      })
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
       });
   },
   // logout
@@ -73,7 +74,21 @@ export default {
         console.log(error);
       });
   },
-  async getCompanyList() {
+
+  async getFirebaseUser (uid) {
+    await db.collection("users")
+    .doc(''+uid)
+    .get()
+    .then((doc) => {
+        var data = doc.data()
+        console.log('data', data)
+        return data
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+async getCompanyList() {
     const DBCOMPANY = await db.collection("company");
     return DBCOMPANY.orderBy("name")
       .get()
@@ -96,6 +111,7 @@ export default {
         });
       }) /* eslint-disable no-console */
       .catch(error => console.log(error));
+
   }
   // add complaint db
   // async addRepo(complaint) {
