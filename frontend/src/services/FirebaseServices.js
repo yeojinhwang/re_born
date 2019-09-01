@@ -68,7 +68,7 @@ export default {
       .signOut()
       .then(function() {})
       .then(sessionStorage.clear())
-      .then(router.push("/sign"))
+      .then(router.push("/"))
       .catch(function(error) {
         /* eslint-disable no-console */
         console.log(error);
@@ -87,6 +87,7 @@ export default {
       .catch((err) => {
         console.log(err)
       })
+  },
 
 async getCompanyList() {
     const DBCOMPANY = await db.collection("company");

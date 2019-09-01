@@ -6,8 +6,9 @@
       <img class="tree_img" src="../../../../public/tree_03.png" width="30px"/>
       <img class="tree_img" src="../../../../public/tree_04.png" width="30px"/>
       <img class="tree_img" src="../../../../public/tree_05.png" width="30px"/>
-      <div class="bar back tree relative_position" :data-skill="pointPercent"></div>
-      <span id="hidePercent" color="black" :bind:style="{width:percent}"></span>
+      <div class="bar back tree relative_position" :data-skill="50"></div>
+      <!-- <span id="hidePercent" color="black" :bind:style="{width:percent}"></span> -->
+      <!-- <span id="hidePercent" color="black" :bind:style="{width:50}"></span> -->
     </div>    
 </template>
 <script>
@@ -23,27 +24,34 @@ export default {
     },
     methods: {
       getUser() {
-          this.user = firebase.auth().currentUser;
-          console.log(this.user)
-      },
+        let _this = this;
+        // this.user = firebase.auth().currentUser;
+        firebase.auth().onAuthStateChanged(function(user){
+            if (user) {
+            _this.user = user;
+            console.log(_this.user);
+            }
+        })
+        },
       pointProgress: function() {
             this.userPoint = this.user.points 
             // var 
         }
     },
     mounted () {
-      this.getUser()
-      this.pointPercent = this.user.points % 100
-      this.percent = 315 - (this.pointPercent * 3.15)
-      document.getElementById('hidePercent').style.width = `${this.percent}`+'px'
-      this.pointProgress()
-      this.percentComputed
+      // this.getUser()
+      // this.pointPercent = this.user.points % 100
+      // this.percent = 315 - (this.pointPercent * 3.15)
+      // document.getElementById('hidePercent').style.width = `${this.percent}`+'px'
+      // this.pointProgress()
+      // this.percentComputed
     },
     computed: {
         percentComputed() {
-            this.pointPercent = this.user.points % 100
+            // this.pointPercent = this.user.points % 100
             // document.getElementById('hidePercent').style.width = "10px"
-            this.percent = 360 - (this.pointPercent * 3.6)
+            // this.percent = 360 - (this.pointPercent * 3.6)
+            this.percent = 50
         }
     },
 }
@@ -98,7 +106,7 @@ body {
   -o-animation: load 2s 0s;
 }
 .bar.tree::before {
-  width: calc(100% - 5px);
+  width: calc(50% - 5px);
 }
 .tree_img {
   position: relative;

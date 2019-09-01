@@ -2,11 +2,11 @@
     <table >
         <tr>
             <th width="150px">회사 이름</th>
-            <th width="200px">제목</th>
+            <th width="250px">제목</th>
         </tr>
         <tr v-for="complaint in user.complaints" :key="complaint.title">
             <td width="150px" >{{complaint.name}}</td>
-            <td width="200px" >{{complaint.title}}</td>
+            <td width="250px" >{{complaint.title}}</td>
         </tr>
     </table>
 </template>
@@ -18,19 +18,19 @@ export default {
             user : {
                 complaints : {
                     1 : {
-                        title : 'title1',
+                        title : '유색페트병 싫어요',
                         content : 'content1',
-                        name : 'name1'
+                        name : '롯데'
                     },
                     2 : {
-                        title : 'title2',
+                        title : '무색페트병으로 바꿔주세요',
                         content : 'content2',
-                        name : 'name2'
+                        name : '코카콜라'
                     },
                     3 : {
-                        title : 'title3',
+                        title : '사이다 병 색 바꿔주세요',
                         content : 'content3',
-                        name : 'name3'
+                        name : '칠성'
                     }
                 }
             }

@@ -51,22 +51,23 @@ export default {
   },
   mounted() {
     this.getUser();
+    console.log(this.user)
     
   },
   methods: {
-     getUser() {
-      let _this = this;
-      // this.user = firebase.auth().currentUser;
-      firebase.auth().onAuthStateChanged(function(user){
-        if (user) {
-          _this.user = user;
-          console.log(_this.user);
-        }
-      })
-    },
+      getUser() {
+        let _this = this;
+        // this.user = firebase.auth().currentUser;
+        firebase.auth().onAuthStateChanged(function(user){
+            if (user) {
+            _this.user = user;
+            console.log(_this.user);
+            }
+        })
+        },
+
     actFunc(title, path) {
       if (title == "log out") {
-        let tmp = FirebaseServices.logoutUser();
         router.push("/");
       } else {
         router.push(path);

@@ -4,20 +4,20 @@
             <div id="gradient"></div>
             
             <img 
-                :src="imgUrl"
+                :src="user.photoURL"
                 width="200"
                 height="200"
                 id="user_img"
             />
             <br>
             <div id="percent"></div>
-            <a class="relative_position" style="font-size: 30px">{{user.displayName}}</a>
         </center>
     </div>
 </template>
 
 <script>
-import FirebaseServices from "../../../services/FirebaseServices.js";
+import FirebaseServices from "../../../services/FirebaseServices";
+import firebase from "firebase";
 export default {
     name: 'MyPage',
     data () {
@@ -30,7 +30,7 @@ export default {
         this.getUser()
     },
     methods: {
-        getUser() {
+         getUser() {
         let _this = this;
         // this.user = firebase.auth().currentUser;
         firebase.auth().onAuthStateChanged(function(user){
