@@ -1,4 +1,5 @@
 <template>
+
     <div id="div_float">
       <img class="tree_img" src="../../../../public/tree_01.png" width="30px"/>
       <img class="tree_img" src="../../../../public/tree_02.png" width="30px"/>
@@ -46,44 +47,47 @@ export default {
         }
     },
 }
+
 // document.getElementById('hidePercent').style.width = "10px"
 </script>
 <style scoped>
-body{
+body {
   font-family: Helvetica, Arial, sans-serif;
 }
-.div{
+.div {
   width: 50%;
   margin: 0 auto;
 }
-@keyframes load{
+@keyframes load {
   from {
-    width: 0%
+    width: 0%;
   }
 }
-@-webkit-keyframes load{
+@-webkit-keyframes load {
   from {
-    width: 0%
+    width: 0%;
   }
 }
-@-moz-keyframes load{
+@-moz-keyframes load {
   from {
-    width: 0%
+    width: 0%;
   }
 }
-@-o-keyframes load{
+@-o-keyframes load {
   from {
-    width: 0%
+    width: 0%;
   }
 }
+
 .bar{
   background-color: #EEE;
+
   padding: 2px;
-  border-radius:15px;
-  margin : 15px;
+  border-radius: 15px;
+  margin: 15px;
 }
-.bar::before{
-  content:  attr(data-skill);
+.bar::before {
+  content: attr(data-skill);
   background-color: green;
   display: inline-block;
   padding: 5px 0 5px 5px;
@@ -93,9 +97,9 @@ body{
   -moz-animation: load 2s 0s;
   -o-animation: load 2s 0s;
 }
-.bar.tree::before{
+.bar.tree::before {
   width: calc(100% - 5px);
-} 
+}
 .tree_img {
   position: relative;
   top: 120px;
@@ -105,18 +109,20 @@ body{
   border-radius: 50%;
 }
 #div_float {
-  float: left
+  float: left;
 }
 #hidePercent {
   height: 35px;
+
   width: 355px;
   background-color: #EEEEEE;
+
   /* background-color: black; */
   position: relative;
   top: 50px;
   right: 16px;
-  float:right;
-  border-radius:0 15px 15px 0;
+  float: right;
+  border-radius: 0 15px 15px 0;
   z-index: 100000-1;
 }
 </style>

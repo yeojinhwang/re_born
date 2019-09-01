@@ -1,15 +1,28 @@
 <template>
   <div class="search">
-    <v-text-field outlined label="Search" append-icon="search" value="Search Company You Want"></v-text-field>
+    <v-text-field append-icon="search" v-model="search_value" @keyup="updateSearch"></v-text-field>
   </div>
 </template>
 
 <script>
-export default {};
+import { functions } from "firebase";
+export default {
+  data: function() {
+    return {
+      search_value: ""
+    };
+  },
+  methods: {
+    updateSearch: function() {
+      this.$emit("emitParentString", this.search_value);
+    }
+  }
+};
 </script>
 
 <style>
 .search {
-  margin: 20px;
+  margin-left: 25px;
+  width: 87%;
 }
 </style>
